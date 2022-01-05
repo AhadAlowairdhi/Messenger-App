@@ -9,6 +9,7 @@ import UIKit
 
 class RegisterVC: UIViewController {
 
+    @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var tfFirstName: UITextField!
     @IBOutlet weak var tfLastName: UITextField!
     @IBOutlet weak var tfEAddress: UITextField!
@@ -20,7 +21,11 @@ class RegisterVC: UIViewController {
         // Do any additional setup after loading the view.
         title = "Create Account"
         view.backgroundColor = .white
-    }
+        imgView.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeProfilePic))
+        imgView.addGestureRecognizer(gesture)
+        }
+
 
     @IBAction func registerBtnAction(_ sender: UIButton) {
         
@@ -37,7 +42,7 @@ class RegisterVC: UIViewController {
                 present(alert, animated: true)
     }
     /*
-    // MARK: - Navigation
+    // MARK: - Functions
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,4 +51,56 @@ class RegisterVC: UIViewController {
     }
     */
 
+    @objc func didTapChangeProfilePic() {
+            presentPhotoActionSheet()
+    }
 }
+extension RegisterVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // get results of user taking picture or selecting from camera roll
+   
+    func presentPhotoActionSheet(){
+        let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [weak self] _ in
+            self?.presentCamera()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { [weak self] _ in
+            self?.presentPhotoPicker()
+        }))
+        
+        present(actionSheet, animated: true)
+    }
+    func presentCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    func presentPhotoPicker() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // take a photo or select a photo
+        
+        // action sheet - take photo or choose photo
+        picker.dismiss(animated: true, completion: nil)
+        print(info)
+        
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        
+        self.imgView.image = selectedImage
+        
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
