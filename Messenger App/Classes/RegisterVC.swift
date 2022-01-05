@@ -34,32 +34,35 @@ class RegisterVC: UIViewController {
                     return
                 }
         // Firebase Login
-        Auth.auth().createUser(withEmail: eAddress, password: nPass, completion: { authResult, error in
-            guard let result = authResult, error == nil else{
-                print("Error Creating User")
+        DatabaseManager.shared.userExists(with: eAddress, completion: { [weak self] exists in
+            guard let strongSelf = self else{
                 return
             }
-            let user = result.user
-            print("Created User: \(user)")
+            
+            guard !exists else{
+             // user already exists
+                strongSelf.alertEmpty(message: "Account already exists")
+                return
+            }
+            Auth.auth().createUser(withEmail: eAddress, password: nPass, completion: { authResult, error in
+                
+                guard authResult != nil, error == nil else{
+                    print("Error Creating User")
+                    return
+                }
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: fName, lastName: lName, emailAddress: eAddress))
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
         })
+        
     }
     
     // MARK: Alert Action
-    func alertEmpty(){
-        let alert = UIAlertController(title: "Error", message: "Text Fields must be not empty", preferredStyle: .alert)
+    func alertEmpty(message: String = "Text Fields must be not empty"){
+        let alert = UIAlertController(title: "Woops", message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                 present(alert, animated: true)
     }
-    
-    /*
-    // MARK: - Functions
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     
 }

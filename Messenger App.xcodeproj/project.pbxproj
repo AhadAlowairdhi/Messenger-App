@@ -24,6 +24,7 @@
 		C309F6E62785C2FC00362E5A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6E52785C2FC00362E5A /* FirebaseStorage */; };
 		C309F6E82785DB3300362E5A /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6E72785DB3300362E5A /* ChatVC.swift */; };
 		C309F6EB2785DBA900362E5A /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6EA2785DBA900362E5A /* MessageKit */; };
+		C309F6ED2786048E00362E5A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6EC2786048E00362E5A /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		C309F6D62784C68000362E5A /* AddNewUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserVC.swift; sourceTree = "<group>"; };
 		C309F6DC2785C10A00362E5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C309F6E72785DB3300362E5A /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		C309F6EC2786048E00362E5A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				C309F6CD2784C47200362E5A /* RegisterVC.swift */,
 				C309F6E72785DB3300362E5A /* ChatVC.swift */,
 				C309F6CF2784C51C00362E5A /* ConversationsTVC.swift */,
+				C309F6EC2786048E00362E5A /* DatabaseManager.swift */,
 				C309F6D32784C59000362E5A /* ProfileVC.swift */,
 				C309F6D62784C68000362E5A /* AddNewUserVC.swift */,
 			);
@@ -194,6 +197,7 @@
 				C309F6CE2784C47200362E5A /* RegisterVC.swift in Sources */,
 				C309F6BA27846F4B00362E5A /* AppDelegate.swift in Sources */,
 				C309F6BC27846F4B00362E5A /* SceneDelegate.swift in Sources */,
+				C309F6ED2786048E00362E5A /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
