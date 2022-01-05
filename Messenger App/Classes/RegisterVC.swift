@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterVC: UIViewController {
 
@@ -22,17 +23,25 @@ class RegisterVC: UIViewController {
         title = "Create Account"
         view.backgroundColor = .white
         imgView.isUserInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeProfilePic))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.presentPhotoActionSheet))
         imgView.addGestureRecognizer(gesture)
         }
 
-
+    // MARK: Button Action
     @IBAction func registerBtnAction(_ sender: UIButton) {
-        
         guard let fName = tfFirstName.text, let lName = tfLastName.text, let eAddress = tfEAddress.text , let nPass = tfNewPassword.text, !fName.isEmpty, !lName.isEmpty , !eAddress.isEmpty, !nPass.isEmpty else {
                     alertEmpty()
                     return
                 }
+        // Firebase Login
+        Auth.auth().createUser(withEmail: eAddress, password: nPass, completion: { authResult, error in
+            guard let result = authResult, error == nil else{
+                print("Error Creating User")
+                return
+            }
+            let user = result.user
+            print("Created User: \(user)")
+        })
     }
     
     // MARK: Alert Action
@@ -41,6 +50,7 @@ class RegisterVC: UIViewController {
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                 present(alert, animated: true)
     }
+    
     /*
     // MARK: - Functions
 
@@ -51,14 +61,12 @@ class RegisterVC: UIViewController {
     }
     */
 
-    @objc func didTapChangeProfilePic() {
-            presentPhotoActionSheet()
-    }
+    
 }
 extension RegisterVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // get results of user taking picture or selecting from camera roll
    
-    func presentPhotoActionSheet(){
+    @objc func presentPhotoActionSheet(){
         let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [weak self] _ in

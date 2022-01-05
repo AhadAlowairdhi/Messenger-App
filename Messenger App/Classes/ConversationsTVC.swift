@@ -21,6 +21,7 @@ class ConversationsTVC: UITableViewController {
             
             if !isLoggedIn {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
+                // let vs = ChatVS()
                 self.navigationController?.pushViewController(vc, animated: false)
             }
         }

@@ -6,24 +6,32 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileVC: UIViewController {
 
+    @IBOutlet weak var lbUsernameOutlet: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = "Profile"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(didTapLogin))
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func logoutBtnAction(_ sender: UIButton) {
+       
+        
+        
     }
-    */
+    
+    // MARK: Functions Section
+    @objc private func didTapLogin() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
+                self.navigationController?.pushViewController(vc, animated: false)
+
+    }
 
 }

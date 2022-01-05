@@ -15,7 +15,6 @@
 		C309F6C627846F4D00362E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C309F6C427846F4D00362E5A /* LaunchScreen.storyboard */; };
 		C309F6CE2784C47200362E5A /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6CD2784C47200362E5A /* RegisterVC.swift */; };
 		C309F6D02784C51C00362E5A /* ConversationsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6CF2784C51C00362E5A /* ConversationsTVC.swift */; };
-		C309F6D22784C53D00362E5A /* ChatTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6D12784C53D00362E5A /* ChatTVC.swift */; };
 		C309F6D42784C59000362E5A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6D32784C59000362E5A /* ProfileVC.swift */; };
 		C309F6D72784C68000362E5A /* AddNewUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6D62784C68000362E5A /* AddNewUserVC.swift */; };
 		C309F6DD2785C10A00362E5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C309F6DC2785C10A00362E5A /* GoogleService-Info.plist */; };
@@ -23,6 +22,8 @@
 		C309F6E22785C2FC00362E5A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6E12785C2FC00362E5A /* FirebaseAuth */; };
 		C309F6E42785C2FC00362E5A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6E32785C2FC00362E5A /* FirebaseDatabase */; };
 		C309F6E62785C2FC00362E5A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6E52785C2FC00362E5A /* FirebaseStorage */; };
+		C309F6E82785DB3300362E5A /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6E72785DB3300362E5A /* ChatVC.swift */; };
+		C309F6EB2785DBA900362E5A /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6EA2785DBA900362E5A /* MessageKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +37,10 @@
 		C309F6C727846F4D00362E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C309F6CD2784C47200362E5A /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		C309F6CF2784C51C00362E5A /* ConversationsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTVC.swift; sourceTree = "<group>"; };
-		C309F6D12784C53D00362E5A /* ChatTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTVC.swift; sourceTree = "<group>"; };
 		C309F6D32784C59000362E5A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		C309F6D62784C68000362E5A /* AddNewUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserVC.swift; sourceTree = "<group>"; };
 		C309F6DC2785C10A00362E5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C309F6E72785DB3300362E5A /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +52,7 @@
 				C309F6E62785C2FC00362E5A /* FirebaseStorage in Frameworks */,
 				C309F6E02785C2FC00362E5A /* FirebaseAnalytics in Frameworks */,
 				C309F6E22785C2FC00362E5A /* FirebaseAuth in Frameworks */,
+				C309F6EB2785DBA900362E5A /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,8 +95,8 @@
 			children = (
 				C309F6BD27846F4B00362E5A /* LogInVC.swift */,
 				C309F6CD2784C47200362E5A /* RegisterVC.swift */,
+				C309F6E72785DB3300362E5A /* ChatVC.swift */,
 				C309F6CF2784C51C00362E5A /* ConversationsTVC.swift */,
-				C309F6D12784C53D00362E5A /* ChatTVC.swift */,
 				C309F6D32784C59000362E5A /* ProfileVC.swift */,
 				C309F6D62784C68000362E5A /* AddNewUserVC.swift */,
 			);
@@ -122,6 +124,7 @@
 				C309F6E12785C2FC00362E5A /* FirebaseAuth */,
 				C309F6E32785C2FC00362E5A /* FirebaseDatabase */,
 				C309F6E52785C2FC00362E5A /* FirebaseStorage */,
+				C309F6EA2785DBA900362E5A /* MessageKit */,
 			);
 			productName = "Messenger App";
 			productReference = C309F6B627846F4B00362E5A /* Messenger App.app */;
@@ -153,6 +156,7 @@
 			mainGroup = C309F6AD27846F4B00362E5A;
 			packageReferences = (
 				C309F6DE2785C2FC00362E5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C309F6E92785DBA900362E5A /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			productRefGroup = C309F6B727846F4B00362E5A /* Products */;
 			projectDirPath = "";
@@ -182,9 +186,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C309F6E82785DB3300362E5A /* ChatVC.swift in Sources */,
 				C309F6D72784C68000362E5A /* AddNewUserVC.swift in Sources */,
 				C309F6D02784C51C00362E5A /* ConversationsTVC.swift in Sources */,
-				C309F6D22784C53D00362E5A /* ChatTVC.swift in Sources */,
 				C309F6D42784C59000362E5A /* ProfileVC.swift in Sources */,
 				C309F6BE27846F4B00362E5A /* LogInVC.swift in Sources */,
 				C309F6CE2784C47200362E5A /* RegisterVC.swift in Sources */,
@@ -417,6 +421,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		C309F6E92785DBA900362E5A /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -439,6 +451,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C309F6DE2785C2FC00362E5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		C309F6EA2785DBA900362E5A /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C309F6E92785DBA900362E5A /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
