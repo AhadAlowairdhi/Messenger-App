@@ -12,6 +12,11 @@ class ConversationsTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        do{
+            try Auth.auth().signOut()
+        }catch{
+            print(error.localizedDescription)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -24,7 +29,9 @@ class ConversationsTVC: UITableViewController {
         if Auth.auth().currentUser == nil {
         //  let vc = LogInVC()
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
-                       self.navigationController?.pushViewController(vc, animated: false)
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .fullScreen
+            self.present(navVC, animated: false)
                    }
                }
     
