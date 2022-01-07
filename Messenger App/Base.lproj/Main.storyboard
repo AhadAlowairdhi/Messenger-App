@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xQ3-G0-xqb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y7C-lm-WyX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-907" y="211"/>
+            <point key="canvasLocation" x="1000.0000000000001" y="213.61607142857142"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="yPn-Fa-m4Y">
@@ -229,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLQ-ei-elX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162" y="211"/>
+            <point key="canvasLocation" x="91" y="-496"/>
         </scene>
         <!--Conversations-->
         <scene sceneID="Zgu-t2-WCS">
@@ -269,14 +269,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vUn-ct-1AO">
-                                <rect key="frame" x="131.5" y="54.5" width="151" height="149"/>
+                                <rect key="frame" x="131.5" y="98.5" width="151" height="149"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vUn-ct-1AO" secondAttribute="height" multiplier="1:1" constant="1" id="aVk-E9-IX8"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="mv5-aa-Zsl"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoG-Mk-8fn">
-                                <rect key="frame" x="50" y="274" width="314" height="45"/>
+                                <rect key="frame" x="50" y="318" width="314" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bkL-UO-xD4"/>
                                 </constraints>
@@ -285,7 +285,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCw-gw-A04">
-                                <rect key="frame" x="50" y="519" width="314" height="45"/>
+                                <rect key="frame" x="50" y="563" width="314" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="WIH-hi-X7W"/>
                                 </constraints>
@@ -321,10 +321,14 @@
                             <constraint firstItem="yLk-WX-ZZh" firstAttribute="trailing" secondItem="DoG-Mk-8fn" secondAttribute="trailing" constant="50" id="tGs-q4-ZdE"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HNy-J1-hYT"/>
+                    <connections>
+                        <outlet property="lbUsernameOutlet" destination="DoG-Mk-8fn" id="cDR-d6-wmv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsT-cC-NLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547.82608695652175" y="210.9375"/>
+            <point key="canvasLocation" x="-23.188405797101453" y="191.51785714285714"/>
         </scene>
         <!--Add New UserVC-->
         <scene sceneID="SZt-xB-AzU">
@@ -384,12 +388,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKg-Wx-BDj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260.8695652173915" y="210.9375"/>
+            <point key="canvasLocation" x="2747.826086956522" y="191.51785714285714"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chat-->
         <scene sceneID="FTS-rq-Zab">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xQ3-G0-xqb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chat" image="message.fill" catalog="system" id="eF7-zp-LCh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UjU-B7-0Vc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -402,12 +407,51 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mf0-m5-Fvv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2107" y="-477"/>
+            <point key="canvasLocation" x="-1803" y="-477"/>
+        </scene>
+        <!--profile-->
+        <scene sceneID="KpR-id-VFa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="24Q-Pj-Zfe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="profile" image="person.circle" catalog="system" id="5Yy-IA-F7g"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uv8-u3-AGZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BrN-Ub-t4w" kind="relationship" relationship="rootViewController" id="b3u-an-KG7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vVQ-MM-52K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-868.11594202898561" y="191.51785714285714"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Z77-Tc-DBs">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Y7C-lm-WyX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QNG-rk-NVS">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="24Q-Pj-Zfe" kind="relationship" relationship="viewControllers" id="d01-yh-Zfu"/>
+                        <segue destination="xQ3-G0-xqb" kind="relationship" relationship="viewControllers" id="tAK-pv-aBs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eDc-s7-0ja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1849" y="214"/>
         </scene>
     </scenes>
     <resources>
         <image name="Messenger Logo" width="3000" height="2000"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

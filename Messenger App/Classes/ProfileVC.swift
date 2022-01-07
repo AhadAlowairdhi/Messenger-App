@@ -14,24 +14,42 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+//        lbUsernameOutlet.text = DatabaseManager.shared.insertUser(with: ChatAppUser).self
+        
         // Do any additional setup after loading the view.
         title = "Profile"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(didTapLogin))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(didTapLogin))
     }
     
 
     @IBAction func logoutBtnAction(_ sender: UIButton) {
-       
         
-        
-    }
-    
-    // MARK: Functions Section
-    @objc private func didTapLogin() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
-                self.navigationController?.pushViewController(vc, animated: false)
+        let actionSheet = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+                actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler:{ [weak self] _ in
+                    guard let strongSelf = self else {
+                        return
+                    }
+              
+                    do {
+                                try FirebaseAuth.Auth.auth().signOut()
+                        let vc = strongSelf.storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
+                                let nav = UINavigationController(rootViewController: vc)
+                                nav.modalPresentationStyle = .fullScreen
+                     
+                    strongSelf.present(nav, animated: true)
+                        
+                            } catch {
+                                print("Error Log Out User: \(error.localizedDescription)")
+                            }
+                }))
+                
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(actionSheet , animated: true)
 
+        
     }
+    // MARK: Functions Section
+//
 
 }
