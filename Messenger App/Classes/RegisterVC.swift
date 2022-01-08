@@ -66,6 +66,7 @@ class RegisterVC: UIViewController {
 
     
 }
+// MARK: Extension Section
 extension RegisterVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // get results of user taking picture or selecting from camera roll
    

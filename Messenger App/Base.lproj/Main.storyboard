@@ -240,7 +240,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="Tkt-MW-TiK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="conversatinsCell" rowHeight="101" id="Tkt-MW-TiK">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tkt-MW-TiK" id="AkW-WZ-fjD">
@@ -328,67 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsT-cC-NLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23.188405797101453" y="191.51785714285714"/>
-        </scene>
-        <!--Add New UserVC-->
-        <scene sceneID="SZt-xB-AzU">
-            <objects>
-                <viewController storyboardIdentifier="AddNewUserVC" id="cSa-QK-UEN" customClass="AddNewUserVC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lqo-c8-pI0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="O5V-dC-eu9">
-                                <rect key="frame" x="10" y="54" width="394" height="40"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Search Users" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7BU-GY-bku">
-                                        <rect key="frame" x="0.0" y="0.0" width="292" height="40"/>
-                                        <attributedString key="attributedText"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwN-zO-HuS">
-                                        <rect key="frame" x="292" y="0.0" width="102" height="40"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=""/>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="PhF-oP-KkD"/>
-                                </constraints>
-                            </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="A4V-f8-Hzn">
-                                <rect key="frame" x="0.0" y="102" width="414" height="711"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="maf-gs-GEP">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="maf-gs-GEP" id="1iD-Hr-vn1">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="tkm-UG-bgv"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="O5V-dC-eu9" firstAttribute="leading" secondItem="tkm-UG-bgv" secondAttribute="leading" constant="10" id="3Y0-ef-2ke"/>
-                            <constraint firstItem="A4V-f8-Hzn" firstAttribute="top" secondItem="O5V-dC-eu9" secondAttribute="bottom" constant="8" symbolic="YES" id="7f1-gt-HwP"/>
-                            <constraint firstItem="O5V-dC-eu9" firstAttribute="top" secondItem="tkm-UG-bgv" secondAttribute="top" constant="10" id="GfJ-NM-E8E"/>
-                            <constraint firstItem="tkm-UG-bgv" firstAttribute="trailing" secondItem="A4V-f8-Hzn" secondAttribute="trailing" id="hhJ-Bh-GS8"/>
-                            <constraint firstItem="A4V-f8-Hzn" firstAttribute="leading" secondItem="tkm-UG-bgv" secondAttribute="leading" id="mpk-P9-pIu"/>
-                            <constraint firstItem="tkm-UG-bgv" firstAttribute="trailing" secondItem="O5V-dC-eu9" secondAttribute="trailing" constant="10" id="x2R-eW-kLJ"/>
-                            <constraint firstItem="tkm-UG-bgv" firstAttribute="bottom" secondItem="A4V-f8-Hzn" secondAttribute="bottom" id="yB7-de-tf8"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AKg-Wx-BDj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2747.826086956522" y="191.51785714285714"/>
+            <point key="canvasLocation" x="-174" y="192"/>
         </scene>
         <!--Chat-->
         <scene sceneID="FTS-rq-Zab">
@@ -426,7 +366,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVQ-MM-52K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-868.11594202898561" y="191.51785714285714"/>
+            <point key="canvasLocation" x="-1083" y="192"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Z77-Tc-DBs">
@@ -434,6 +374,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Y7C-lm-WyX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QNG-rk-NVS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -444,12 +385,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDc-s7-0ja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1849" y="214"/>
+            <point key="canvasLocation" x="-2606" y="192"/>
         </scene>
     </scenes>
     <resources>
         <image name="Messenger Logo" width="3000" height="2000"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>

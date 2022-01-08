@@ -50,6 +50,6 @@ class ProfileVC: UIViewController {
         
     }
     // MARK: Functions Section
-//
+
 
 }

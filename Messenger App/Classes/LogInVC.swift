@@ -22,7 +22,7 @@ class LogInVC: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))
     }
 
-
+// MARK: IBActions Section
     @IBAction func loginBtnAction(_ sender: UIButton) {
         guard let email = tfEmail.text, let password = tfPassword.text, !email.isEmpty, !password.isEmpty else {
                     alertLogInError()

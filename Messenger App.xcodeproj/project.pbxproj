@@ -16,7 +16,6 @@
 		C309F6CE2784C47200362E5A /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6CD2784C47200362E5A /* RegisterVC.swift */; };
 		C309F6D02784C51C00362E5A /* ConversationsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6CF2784C51C00362E5A /* ConversationsTVC.swift */; };
 		C309F6D42784C59000362E5A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6D32784C59000362E5A /* ProfileVC.swift */; };
-		C309F6D72784C68000362E5A /* AddNewUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6D62784C68000362E5A /* AddNewUserVC.swift */; };
 		C309F6DD2785C10A00362E5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C309F6DC2785C10A00362E5A /* GoogleService-Info.plist */; };
 		C309F6E02785C2FC00362E5A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6DF2785C2FC00362E5A /* FirebaseAnalytics */; };
 		C309F6E22785C2FC00362E5A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6E12785C2FC00362E5A /* FirebaseAuth */; };
@@ -29,6 +28,8 @@
 		C309F6F2278964AE00362E5A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6F1278964AE00362E5A /* RealmSwift */; };
 		C309F6F527896A7700362E5A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6F427896A7700362E5A /* SDWebImage */; };
 		C309F6F727896A7700362E5A /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6F627896A7700362E5A /* SDWebImageMapKit */; };
+		C309F6FA2789777100362E5A /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6F92789777100362E5A /* JGProgressHUD */; };
+		C309F6FC2789800F00362E5A /* NewConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6FB2789800F00362E5A /* NewConversationVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,10 +44,10 @@
 		C309F6CD2784C47200362E5A /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		C309F6CF2784C51C00362E5A /* ConversationsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTVC.swift; sourceTree = "<group>"; };
 		C309F6D32784C59000362E5A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		C309F6D62784C68000362E5A /* AddNewUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserVC.swift; sourceTree = "<group>"; };
 		C309F6DC2785C10A00362E5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C309F6E72785DB3300362E5A /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		C309F6EC2786048E00362E5A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		C309F6FB2789800F00362E5A /* NewConversationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 				C309F6F727896A7700362E5A /* SDWebImageMapKit in Frameworks */,
 				C309F6E42785C2FC00362E5A /* FirebaseDatabase in Frameworks */,
 				C309F6F527896A7700362E5A /* SDWebImage in Frameworks */,
+				C309F6FA2789777100362E5A /* JGProgressHUD in Frameworks */,
 				C309F6F2278964AE00362E5A /* RealmSwift in Frameworks */,
 				C309F6E62785C2FC00362E5A /* FirebaseStorage in Frameworks */,
 				C309F6E02785C2FC00362E5A /* FirebaseAnalytics in Frameworks */,
@@ -109,7 +111,7 @@
 				C309F6CF2784C51C00362E5A /* ConversationsTVC.swift */,
 				C309F6EC2786048E00362E5A /* DatabaseManager.swift */,
 				C309F6D32784C59000362E5A /* ProfileVC.swift */,
-				C309F6D62784C68000362E5A /* AddNewUserVC.swift */,
+				C309F6FB2789800F00362E5A /* NewConversationVC.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -140,6 +142,7 @@
 				C309F6F1278964AE00362E5A /* RealmSwift */,
 				C309F6F427896A7700362E5A /* SDWebImage */,
 				C309F6F627896A7700362E5A /* SDWebImageMapKit */,
+				C309F6F92789777100362E5A /* JGProgressHUD */,
 			);
 			productName = "Messenger App";
 			productReference = C309F6B627846F4B00362E5A /* Messenger App.app */;
@@ -174,6 +177,7 @@
 				C309F6E92785DBA900362E5A /* XCRemoteSwiftPackageReference "MessageKit" */,
 				C309F6EE278964AD00362E5A /* XCRemoteSwiftPackageReference "realm-swift" */,
 				C309F6F327896A7700362E5A /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C309F6F82789777000362E5A /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = C309F6B727846F4B00362E5A /* Products */;
 			projectDirPath = "";
@@ -204,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C309F6E82785DB3300362E5A /* ChatVC.swift in Sources */,
-				C309F6D72784C68000362E5A /* AddNewUserVC.swift in Sources */,
+				C309F6FC2789800F00362E5A /* NewConversationVC.swift in Sources */,
 				C309F6D02784C51C00362E5A /* ConversationsTVC.swift in Sources */,
 				C309F6D42784C59000362E5A /* ProfileVC.swift in Sources */,
 				C309F6BE27846F4B00362E5A /* LogInVC.swift in Sources */,
@@ -463,6 +467,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		C309F6F82789777000362E5A /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -510,6 +522,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C309F6F327896A7700362E5A /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		C309F6F92789777100362E5A /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C309F6F82789777000362E5A /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
