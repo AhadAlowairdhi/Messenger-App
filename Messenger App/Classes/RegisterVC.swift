@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterVC: UIViewController {
 
@@ -33,6 +34,7 @@ class RegisterVC: UIViewController {
                     alertEmpty()
                     return
                 }
+        
         // Firebase Login
         DatabaseManager.shared.userExists(with: eAddress, completion: { [weak self] exists in
             guard let strongSelf = self else{
@@ -50,22 +52,43 @@ class RegisterVC: UIViewController {
                     print("Error Creating User")
                     return
                 }
-                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: fName, lastName: lName, emailAddress: eAddress))
-                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-            })
-        })
-        
-    }
+                let chatUser = ChatAppUser(firstName: fName, lastName: lName, emailAddress: eAddress)
+                DatabaseManager.shared.insertUser(with: chatUser,completion: { success in
+                                         if success {
+                                             //upload image
+                                             guard let image = strongSelf.imgView.image,
+                                                    let data = image.pngData() else {
+                                                        return
+                                                    }
+                                             let fileName = chatUser.profilePictureFileName
+                                             StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
+                                                 switch result{
+                                                 case.success(let downloadUrl):
+                                                     UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                                     print(downloadUrl)
+                                                 case.failure(let error):
+                                                     print("Storage manger error\(error)")
+                                                 }
+                                                 
+                                             })
+                                                    
+                                         }
+                                     })
+                                     strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                                 })
+                             })
+              }
+ 
     
     // MARK: Alert Action
     func alertEmpty(message: String = "Text Fields must be not empty"){
         let alert = UIAlertController(title: "Woops", message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                present(alert, animated: true)
-    }
+                self.present(alert, animated: true)
+    } //End of alert action
 
     
-}
+} // End of class
 // MARK: Extension Section
 extension RegisterVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // get results of user taking picture or selecting from camera roll
