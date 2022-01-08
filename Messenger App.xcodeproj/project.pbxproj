@@ -25,6 +25,10 @@
 		C309F6E82785DB3300362E5A /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6E72785DB3300362E5A /* ChatVC.swift */; };
 		C309F6EB2785DBA900362E5A /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6EA2785DBA900362E5A /* MessageKit */; };
 		C309F6ED2786048E00362E5A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C309F6EC2786048E00362E5A /* DatabaseManager.swift */; };
+		C309F6F0278964AE00362E5A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6EF278964AE00362E5A /* Realm */; };
+		C309F6F2278964AE00362E5A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6F1278964AE00362E5A /* RealmSwift */; };
+		C309F6F527896A7700362E5A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6F427896A7700362E5A /* SDWebImage */; };
+		C309F6F727896A7700362E5A /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C309F6F627896A7700362E5A /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +54,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C309F6F0278964AE00362E5A /* Realm in Frameworks */,
+				C309F6F727896A7700362E5A /* SDWebImageMapKit in Frameworks */,
 				C309F6E42785C2FC00362E5A /* FirebaseDatabase in Frameworks */,
+				C309F6F527896A7700362E5A /* SDWebImage in Frameworks */,
+				C309F6F2278964AE00362E5A /* RealmSwift in Frameworks */,
 				C309F6E62785C2FC00362E5A /* FirebaseStorage in Frameworks */,
 				C309F6E02785C2FC00362E5A /* FirebaseAnalytics in Frameworks */,
 				C309F6E22785C2FC00362E5A /* FirebaseAuth in Frameworks */,
@@ -128,6 +136,10 @@
 				C309F6E32785C2FC00362E5A /* FirebaseDatabase */,
 				C309F6E52785C2FC00362E5A /* FirebaseStorage */,
 				C309F6EA2785DBA900362E5A /* MessageKit */,
+				C309F6EF278964AE00362E5A /* Realm */,
+				C309F6F1278964AE00362E5A /* RealmSwift */,
+				C309F6F427896A7700362E5A /* SDWebImage */,
+				C309F6F627896A7700362E5A /* SDWebImageMapKit */,
 			);
 			productName = "Messenger App";
 			productReference = C309F6B627846F4B00362E5A /* Messenger App.app */;
@@ -160,6 +172,8 @@
 			packageReferences = (
 				C309F6DE2785C2FC00362E5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C309F6E92785DBA900362E5A /* XCRemoteSwiftPackageReference "MessageKit" */,
+				C309F6EE278964AD00362E5A /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C309F6F327896A7700362E5A /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = C309F6B727846F4B00362E5A /* Products */;
 			projectDirPath = "";
@@ -433,6 +447,22 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		C309F6EE278964AD00362E5A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C309F6F327896A7700362E5A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -460,6 +490,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C309F6E92785DBA900362E5A /* XCRemoteSwiftPackageReference "MessageKit" */;
 			productName = MessageKit;
+		};
+		C309F6EF278964AE00362E5A /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C309F6EE278964AD00362E5A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		C309F6F1278964AE00362E5A /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C309F6EE278964AD00362E5A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		C309F6F427896A7700362E5A /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C309F6F327896A7700362E5A /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		C309F6F627896A7700362E5A /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C309F6F327896A7700362E5A /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
