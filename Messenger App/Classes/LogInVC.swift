@@ -43,6 +43,7 @@ class LogInVC: UIViewController {
                 return
             }
             let user = result.user
+            UserDefaults.standard.setValue(email, forKey: "email")
             print("Logged In User: \(user)")
             strongSelf.navigationController?.dismiss(animated: true, completion: nil)
         })

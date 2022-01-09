@@ -17,11 +17,6 @@ class ConversationsTVC: UITableViewController {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
 
-        //        do{
-//            try Auth.auth().signOut()
-//        }catch{
-//            print(error.localizedDescription)
-//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,7 +27,6 @@ class ConversationsTVC: UITableViewController {
 //MARK: Functions Section
     private func validateAuth(){
         if Auth.auth().currentUser == nil {
-        //  let vc = LogInVC()
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .fullScreen

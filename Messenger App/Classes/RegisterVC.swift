@@ -21,6 +21,7 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        imgView.layer.cornerRadius = imgView.frame.size.width/2
         title = "Create Account"
         view.backgroundColor = .white
         imgView.isUserInteractionEnabled = true
@@ -64,7 +65,7 @@ class RegisterVC: UIViewController {
                                              StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
                                                  switch result{
                                                  case.success(let downloadUrl):
-                                                     UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                                     UserDefaults.standard.setValue(downloadUrl, forKey: "profile_picture_url")
                                                      print(downloadUrl)
                                                  case.failure(let error):
                                                      print("Storage manger error\(error)")
