@@ -10,7 +10,7 @@ import FirebaseAuth
 import JGProgressHUD
 
 class RegisterVC: UIViewController {
-
+    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var tfFirstName: UITextField!
     @IBOutlet weak var tfLastName: UITextField!
@@ -19,7 +19,7 @@ class RegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         imgView.layer.cornerRadius = imgView.frame.size.width/2
         title = "Create Account"
@@ -27,14 +27,14 @@ class RegisterVC: UIViewController {
         imgView.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.presentPhotoActionSheet))
         imgView.addGestureRecognizer(gesture)
-        }
-
+    }
+    
     // MARK: Button Action
     @IBAction func registerBtnAction(_ sender: UIButton) {
         guard let fName = tfFirstName.text, let lName = tfLastName.text, let eAddress = tfEAddress.text , let nPass = tfNewPassword.text, !fName.isEmpty, !lName.isEmpty , !eAddress.isEmpty, !nPass.isEmpty else {
-                    alertEmpty()
-                    return
-                }
+            alertEmpty()
+            return
+        }
         
         // Firebase Login
         DatabaseManager.shared.userExists(with: eAddress, completion: { [weak self] exists in
@@ -43,7 +43,7 @@ class RegisterVC: UIViewController {
             }
             
             guard !exists else{
-             // user already exists
+                // user already exists
                 strongSelf.alertEmpty(message: "Account already exists")
                 return
             }
@@ -53,47 +53,50 @@ class RegisterVC: UIViewController {
                     print("Error Creating User")
                     return
                 }
+                UserDefaults.standard.setValue(eAddress, forKey: "email")
+                UserDefaults.standard.setValue("\(fName) \(lName)", forKey: "name")
+                
                 let chatUser = ChatAppUser(firstName: fName, lastName: lName, emailAddress: eAddress)
                 DatabaseManager.shared.insertUser(with: chatUser,completion: { success in
-                                         if success {
-                                             //upload image
-                                             guard let image = strongSelf.imgView.image,
-                                                    let data = image.pngData() else {
-                                                        return
-                                                    }
-                                             let fileName = chatUser.profilePictureFileName
-                                             StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
-                                                 switch result{
-                                                 case.success(let downloadUrl):
-                                                     UserDefaults.standard.setValue(downloadUrl, forKey: "profile_picture_url")
-                                                     print(downloadUrl)
-                                                 case.failure(let error):
-                                                     print("Storage manger error\(error)")
-                                                 }
-                                                 
-                                             })
-                                                    
-                                         }
-                                     })
-                                     strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-                                 })
-                             })
-              }
- 
+                    if success {
+                        //upload image
+                        guard let image = strongSelf.imgView.image,
+                              let data = image.pngData() else {
+                                  return
+                              }
+                        let fileName = chatUser.profilePictureFileName
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
+                            switch result{
+                            case.success(let downloadUrl):
+                                UserDefaults.standard.setValue(downloadUrl, forKey: "profile_picture_url")
+                                print(downloadUrl)
+                            case.failure(let error):
+                                print("Storage manger error\(error)")
+                            }
+                            
+                        })
+                        
+                    }
+                })
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
+        })
+    }
+    
     
     // MARK: Alert Action
     func alertEmpty(message: String = "Text Fields must be not empty"){
         let alert = UIAlertController(title: "Woops", message: message, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                self.present(alert, animated: true)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     } //End of alert action
-
+    
     
 } // End of class
 // MARK: Extension Section
 extension RegisterVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // get results of user taking picture or selecting from camera roll
-   
+    
     @objc func presentPhotoActionSheet(){
         let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
